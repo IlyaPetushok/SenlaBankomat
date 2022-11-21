@@ -8,14 +8,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadCards {
-    public static List<Card> getCards() {
-        List<Card> cards=new ArrayList<>();
+public class Reader {
+    public static List<Card> getCards(String idBank) {
+        List<Card> cards = new ArrayList<>();
         String line = null;
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("src/main/resources/cards.txt"));
             while ((line = bufferedReader.readLine()) != null) {
-                cards.add(createObject(line));
+                if (line.substring(18,22).equals(idBank)) {
+                    cards.add(createObject(line));
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
