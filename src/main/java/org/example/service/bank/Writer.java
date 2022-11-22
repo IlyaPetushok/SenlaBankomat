@@ -10,7 +10,7 @@ import java.io.*;
 import java.util.List;
 
 public class Writer {
-    public static boolean writeCardsInFile() {
+    public static void writeCardsInFile() {
         Bank[] banks = {BelarusBank.getInstance(), BTBBank.getInstance(), BelapromBank.getInstance()};
 
         List<Card> cards;
@@ -25,8 +25,6 @@ public class Writer {
             }
         } catch (IOException e) {
             System.out.println("Ошибка при записи карты в файл," + e);
-            return false;
         }
-        return true;
     }
 }

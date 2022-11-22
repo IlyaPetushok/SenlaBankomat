@@ -1,10 +1,7 @@
 package org.example.main;
 
-import org.example.models.bank.BTBBank;
-import org.example.models.bank.Bank;
 import org.example.models.CashMachine;
 import org.example.models.Card;
-import org.example.service.bank.Writer;
 import org.example.service.card.CreateCard;
 import org.example.service.card.FunctionalCard;
 import org.example.service.card.InputCard;
@@ -30,8 +27,7 @@ public class Main {
                         cashMachine.setCard(true);
                         InputCard inputCard = new InputCard();
                         if ((card=inputCard.inputCard())!=null) {
-                            FunctionalCard functionalCard=new FunctionalCard();
-                            functionalCard.workWithCard(card);
+                            FunctionalCard.workWithCard(card);
                         }
                         cashMachine.setCard(false);
                     } else {

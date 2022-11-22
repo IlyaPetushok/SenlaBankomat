@@ -2,19 +2,13 @@ package org.example.service.card;
 
 import org.example.models.CashMachine;
 import org.example.models.Card;
-import org.example.models.bank.Bank;
-import org.example.models.bank.TypeCardBank;
 import org.example.service.bank.Writer;
-
-import java.util.List;
 import java.util.Scanner;
 
 public class FunctionalCard {
-    CashMachine cashMachine = CashMachine.getInstance();
-    Scanner in=new Scanner(System.in);
-
-    public void workWithCard(Card card) {
-        Bank bank= TypeCardBank.getBankType(card.getNumberCards().substring(0,4));
+    public static void workWithCard(Card card) {
+        CashMachine cashMachine = CashMachine.getInstance();
+        Scanner in=new Scanner(System.in);
         boolean flag = true;
         while (flag) {
             System.out.println("Выбеоте функцию:\n1)Просмотр суммы\n2)Пополнение баланса\n3)Cнятие денег\n4)Выход");

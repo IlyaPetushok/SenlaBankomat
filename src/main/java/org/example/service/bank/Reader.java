@@ -3,6 +3,7 @@ package org.example.service.bank;
 import org.example.models.Card;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.List;
 public class Reader {
     public static List<Card> getCards(String idBank) {
         List<Card> cards = new ArrayList<>();
-        String line = null;
+        String line;
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("src/main/resources/cards.txt"));
             while ((line = bufferedReader.readLine()) != null) {
@@ -19,8 +20,12 @@ public class Reader {
                     cards.add(createObject(line));
                 }
             }
-        } catch (IOException e) {
+        } catch (FileNotFoundException e) {
+            System.out.println("Невозможно найти файл!");
             e.printStackTrace();
+        } catch (IOException exception) {
+            System.out.println("Ошибка чтения/записи файла");
+            exception.printStackTrace();
         }
         return cards;
     }

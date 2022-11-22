@@ -11,8 +11,8 @@ import java.util.*;
 public class CreateCard {
     private Bank bank;
     private final StringBuilder numberCard=new StringBuilder();
-
     Scanner in =new Scanner(System.in);
+
     public CreateCard() {
         createCard();
     }
@@ -46,7 +46,7 @@ public class CreateCard {
         Random random = new Random();
         numberCard.setLength(0);
         int num;
-        numberCard.append(idBank+" ");
+        numberCard.append(idBank).append(" ");
         for (int i = 0; i <= 3; i++) {
             num = 10000 + random.nextInt(9999);
             numberCard.append(String.valueOf(num), 1, 5);
